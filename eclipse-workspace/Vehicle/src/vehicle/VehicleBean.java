@@ -3,18 +3,6 @@ package vehicle;
 public class VehicleBean {
 
 	int num;
-	String station;
-	String location;
-	String city;
-	String closed;
-	String roadname;
-	String lot;
-	String management;
-	String phonenumber;
-	String latitude;
-	String hardness;
-	
-	
 	public int getNum() {
 		return num;
 	}
@@ -81,6 +69,20 @@ public class VehicleBean {
 	public void setHardness(String hardness) {
 		this.hardness = hardness;
 	}
+	String station;
+	String location;
+	String city;
+	String closed;
+	String roadname;
+	String lot;
+	String management;
+	String phonenumber;
+	String latitude;
+	String hardness;
+	
+	
+	
+	
 	
 
 }

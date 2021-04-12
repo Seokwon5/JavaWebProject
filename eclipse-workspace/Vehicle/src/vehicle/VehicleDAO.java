@@ -2,8 +2,8 @@ package vehicle;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,9 +17,9 @@ public class VehicleDAO {
 	ResultSet rs = null;
 	String sql = "select*from vehicle";
 	String drv = "oracle.jdbc.OracleDriver";
-	String url = "jdbc:oracle:thin:@dalma.dongguk.ac.kr:1521:stud1";
-	String user = "duckwon2";
-	String pass = "1234";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String user = "system";
+	String pass = "123456";
 	
 public Connection makeConnection() throws SQLException{
 	try {
@@ -59,7 +59,8 @@ public void printVehicle() {
 			System.out.printf("%20s",rs.getString("8"));
 			System.out.printf("%20s",rs.getString("9"));
 			System.out.printf("%20s",rs.getString("10"));
-			System.out.printf("%20s%n",rs.getString("11"));
+			System.out.printf("%20s",rs.getString("11"));
+			
 		}
 	}catch(SQLException es) {
 		System.out.println("SQL Err3: "+es.getSQLState());
@@ -68,12 +69,10 @@ public void printVehicle() {
 
 
 public List makeListVehicle() {
-	
 	VehicleBean sb = null;
 	List list = new ArrayList();
 	
 	try {
-		
 		rs = getRS();
 		while(rs.next()) {
 			sb=new VehicleBean();
@@ -88,27 +87,13 @@ public List makeListVehicle() {
 			sb.setPhonenumber(rs.getString(9));
 			sb.setLatitude(rs.getString(10));
 			sb.setHardness(rs.getString(11));
+			
+			
 			list.add(sb);
 		}
 	}catch(SQLException es) {
-		System.out.println("SQL Err4: "+es.getSQLState());
-	}finally {
-		try {
-			if(rs!=null) {rs.close();}
-		}catch (Exception e2) {
-			e2.printStackTrace();
-		}
-	}try {
-		if(stmt!=null) {stmt.close();}
-	}catch(Exception e2) {
-		e2.printStackTrace();
+		System.out.println("SQL Err3: "+es.getSQLState());
 	}
-	try {
-		if(conn!=null) {conn.close();}
-	}catch(Exception e2) {
-		e2.printStackTrace();
-	}
-
 	return list;
 }
  
@@ -130,8 +115,10 @@ public void printListVehicle() {
 			System.out.printf("%20s", sb.getLot());
 			System.out.printf("%20s", sb.getManagement());
 			System.out.printf("%20s", sb.getPhonenumber());
-			System.out.printf("%20s", sb.getLatitude());
+			System.out.printf("%20s%n", sb.getLatitude());
 			System.out.printf("%20s%n", sb.getHardness());
+			
+			
 		}
 	}catch(Exception es) {
 		System.out.println("Exception Err: ");

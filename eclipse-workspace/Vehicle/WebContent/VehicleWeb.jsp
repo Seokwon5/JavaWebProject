@@ -4,42 +4,41 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 
-<%@page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 
-	<h1>°­³²±Ç</h1>
+	<h1>ê°•ë‚¨ê¶Œ</h1>
 	<table width="1300" border="3" bordercolor="lightgray">
 	
 		<tr height = "30">
-			<td width="50" align="center">¹øÈ£</td>
-			<td width="80" align="center">ÃæÀü¼Ò ¸í</td>
-			<td width="80" align="center">ÃæÀü¼Ò À§Ä¡</td>
-			<td width="70" align="center">¼³Ä¡½Ãµµ¸í</td>
-			<td width="50" align="center">ÈÞÁ¡ÀÏ</td>
-			<td width="80" align="center">¼ÒÀçÁö µµ·Î¸í</td>
-			<td width="80" align="center">¼ÒÀçÁö Áö¹ø</td>
-			<td width="80" align="center">°ü¸®¾÷Ã¼ ¸í</td>
-			<td width="80" align="center">°ü¸®¾÷Ã¼ ¹øÈ£</td>
-			<td width="50" align="center">À§µµ</td>
-			<td width="50" align="center">°æµµ</td>
+			<td width="50" align="center">ë²ˆí˜¸</td>
+			<td width="80" align="center">ì¶©ì „ì†Œ ëª…</td>
+			<td width="80" align="center">ì¶©ì „ì†Œ ìœ„ì¹˜</td>
+			<td width="70" align="center">ì„¤ì¹˜ì‹œë„ëª…</td>
+			<td width="50" align="center">íœ´ì ì¼</td>
+			<td width="80" align="center">ì†Œìž¬ì§€ ë„ë¡œëª…</td>
+			<td width="80" align="center">ì†Œìž¬ì§€ ì§€ë²ˆ</td>
+			<td width="80" align="center">ê´€ë¦¬ì—…ì²´ ëª…</td>
+			<td width="80" align="center">ê´€ë¦¬ì—…ì²´ ë²ˆí˜¸</td>
+			<td width="50" align="center">ìœ„ë„</td>
+			<td width="50" align="center">ê²½ë„</td>
 		</tr>
 		<%
-	    VehicleDAO md = new VehicleDAO();
-		List list  = md.makeListVehicle();
+		VehicleDAO md = new VehicleDAO();
+		List list = md.makeListVehicle();
 		Iterator it = list.iterator();
 		VehicleBean sb = null;
-
 		try {
 			while(it.hasNext()) {
-				sb=(VehicleBean)it.next();
+				sb = (VehicleBean)it.next();
 			
 	%>
 		
